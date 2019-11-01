@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <script src="some-javascript-file.js"></script>
+    <script>
+        Some JavascriptCode
+
+    </script>
+    <link rel="stylesheet" href="some-css-file.css" />
+    <style>
+        Some CSS Styles
+
+    </style>
+</head>
+
+<body>
+    <!-- Comment in HTML -->
+    Page contents
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    <h4>This is heading 4</h4>
+    <h5>This is heading 5</h5>
+    <h6>This is heading 6</h6>
+
+    <p>The quick brown fox jumps over the lazy dog.</p>
+
+    <pre>The quick brown
+        fox jumps
+        over the lazy dog.</pre>
+
+    <p>Text is <b>bold</b> and <strong>strong</strong></p>
+    <p>Text is <i>italic</i> and <em>emphasized</em></p>
+    <p>Text is <u>underlined</u></p>
+    <p>Text is <sub>subscript</sub> Eg: O<sub>2</sub></p>
+    <p>Text is <sup>superscript</sup> Eg: x<sup>2</sup></p>
+    <br/>
+    <p>Adds an extra line break</p>
+    <hr />
+
+    <a href="http://www.google.com" target="_blank" title="Google">
+    Google.com
+    </a>
+    <br><br>
+    <img src="img1.jpg" height="200" width="300" alt="Alternate Text" title="Image Title">
+    <ol type="1" (type=1 / A / a / I / i) start="5">
+        <li>HTML</li>
+        <li value="100">CSS</li>
+        <li>XML</li>
+    </ol>
+    <ul type="disc"> (type = disc / square / circle )
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>XML</li>
+    </ul>
+    <dl>
+        <dt>HTML</dt>
+        <dd>Hyper Text Mark-up Language</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheet</dd>
+    </dl>
+
+    <table width="50%" border="1" cellspacing="10" cellpadding="15">
+        <tr>
+            <td colspan="2">srno.</td>
+            <td>name</td>
+        </tr>
+        <tr>
+            <td colspan="2">1</td>
+            <td>Mr. Anderson</td>
+        </tr>
+    </table>
+    <br>
+    <table width="40%" border="2" cellspacing="8" cellpadding="5">
+        <tr>
+            <td rowspan="2">Users</td>
+            <td>Mr. Gates</td>
+        </tr>
+        <tr>
+            <td>Mr. Anderson</td>
+        </tr>
+    </table>
+    <br>
+    <form action="process.php" method="post">
+        <input />
+        <select> … </select>
+        <textarea> … </textarea>
+        <button> … </button>
+    </form>
+    <br>
+    <form action="process.php" method="post">
+        <input type="text" name="name" placeholder="Enter Name" /><br>
+        <input type="password" name="pass" placeholder="******" /><br>
+        <input type="hidden" name="ip" value="192.168.1.1" />
+        <input type="radio" name="gender" value="male" /> Male
+        <input type="radio" name="gender" value="female" /> Female <br>
+        <input type="checkbox" name="interest[]" value="cricket" /> Cricket
+        <input type="checkbox" name="interest[]" value="football" /> Football <br>
+        <input type="submit" name="submit_button" value="Submit" /><br>
+        <input type="reset" name="reset_button" value="Reset" /><br>
+        <input type="date" name="dob" placeholder="Date of Birth" /><br>
+        <input type="number" name="phone" placeholder="Phone #" /><br>
+        <select name="city">
+            <option value = "MUM">Mumbai</option>
+            <option value = "DEL" selected>Delhi</option>
+            <option value = "CCU">Kolkata</option>
+        </select><br>
+        <select name="city" multiple>
+            <option value = "MUM" selected>Mumbai</option>
+            <option value = "DEL">Delhi</option>
+            <option value = "CCU">Kolkata</option>
+        </select><br>
+        <textarea name="about_you" placeholder="About you">Default text here …
+        </textarea><br>
+        <button type="button" name="submit_button" value="Submit">Submit</button>
+        <button type="reset" name="reset_button" value="Reset">Reset</button>
+
+    </form>
+    <br><br>
+    <div class="parent">
+        <div id="left">Left division</div>
+        <div id="right">Right divison</div>
+        <div id="div1">1st division</div>
+        <div id="div2">2nd divison</div>
+        <div id="div3">3rd division</div>
+        <div id="div4">4th divison</div>
+        <div id="div4a">5th divison</div>
+    </div>
+
+    <!-- ***** CSS ****   -->
+
+    <style>
+        /* CSS Comments */
+
+        p {
+            color: #333;
+            /*            (red / rgb(255, 0, 0) / #F00 / #FF0000) */
+            text-align: center;
+            /*            (left / right / center/ justify) */
+            text-decoration: underline;
+            /*            (overline/ line-through / underline) */
+            text-transform: uppercase;
+            /*            (uppercase / lowercase / capitalize) */
+            font-size: 15px;
+            font-family: Times New Roman;
+            letter-spacing: 0.5px;
+            word-spacing: 5px;
+            line-height: 18px;
+        }
+
+        body {
+            background-color: #f5f894;
+        }
+
+        body {
+            background-image: url('img2.jpg');
+        }
+
+        body {
+            background-repeat: none;
+        }
+
+        body {
+            background-position: left top;
+        }
+
+        div {
+            height: 100px;
+        }
+
+        div {
+            width: 100px;
+        }
+
+        div {
+            min-height: 100px;
+        }
+
+        div {
+            max-height: 150px;
+        }
+
+        div {
+            min-width: 60px;
+        }
+
+        div {
+            max-width: 250px;
+        }
+
+        div {
+            margin-top: 30px;
+            margin-right: 30px;
+            margin-bottom: 30px;
+            margin-left: 30px;
+        }
+
+        #div1 {
+            position: static;
+            color: aliceblue;
+        }
+
+        #div2 {
+            position: relative;
+            left/right: 50px;
+            color: aliceblue;
+        }
+
+        #div3 {
+            position: fixed;
+            left/right: 50px;
+            top/bottom: 50px;
+            color: aliceblue;
+        }
+
+        #div4 {
+            position: inherit;
+            left/right: 50px;
+            top/bottom: 50px;
+            color: aliceblue;
+        }
+
+        #div4a {
+            position: absolute;
+            left/right: 5px;
+            top/bottom: 5px;
+            color: aliceblue;
+        }
+
+        #div1 {
+            float: left;
+        }
+
+        #div2 {
+            clear: right;
+        }
+
+        div {
+            background-color: #901111;
+            width: 300px;
+            height: 100px;
+        }
+
+        #div1 {
+            overflow: visible;
+        }
+
+        #div2 {
+            overflow: hidden;
+        }
+
+        #div2 {
+            overflow: scroll;
+        }
+
+        #div2 {
+            overflow: auto;
+        }
+
+        #div1 {
+            display: block;
+        }
+
+        #div2 {
+            clear: block;
+        }
+
+        #div3 {
+            clear: inline-block;
+        }
+
+    </style>
+
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+#header {
+    position: relative;
+    height: 30%;
+    background-color: #88d0d0;
+}
+
+#header h3 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+#sidebar {
+    float: right;
+    width: 30%;
+    height: 100%;
+    background-color: rgb(198, 250, 250);
+}
+
+#main {
+    float: left;
+    width: 70%;
+    height: auto;
+}
+
+.buttons {
+
+    margin-left: 150px;
+    margin-bottom: 15px;
+
+}
+
+.buttons #upCnt {
+    float: left;
+    margin-right: 10px;
+    background-color: #008CBA;
+    padding: 7px 24px;
+    border-radius: 8px;
+    color: white;
+}
+
+
+.buttons #dnCnt {
+    float: inherit;
+    margin-left: 20px;
+    margin-right: 15px;
+    background-color: #008CBA;
+    padding: 7px 24px;
+    border-radius: 8px;
+    color: white;
+}
+
+
+/*
+
+.countdown {
+    display: none;
+}
+*/
+
+/*
+.countdown1 {
+    display: none;
+}
+*/
+
+#upperCnt,
+#lowerCnt {
+    display: none;
+}

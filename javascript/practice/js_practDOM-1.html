@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>JS-DOM Practice</title>
+    <link rel="stylesheet" href="style_jsdom.css">
+</head>
+
+<body>
+
+
+    <div>
+        <div id="header">
+            <h3>JS-DOM</h3>
+        </div>
+        <br>
+        <div id="sidebar">
+            <h3>Ad Section</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, assumenda, praesentium adipisci voluptatibus sunt itaque magnam illum provident optio accusamus? Mollitia rerum, placeat est consectetur dolores accusamus? Ratione, porro, deleniti. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur vel a reiciendis sit harum, repudiandae ipsa minus sunt, cum quae, repellat ipsum, eum officia recusandae excepturi consectetur aliquid dolorem incidunt!</p>
+        </div>
+        <div id="main">
+            <div id="upperSection">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora minus delectus porro ut repellendus ex omnis deserunt odio ad recusandae voluptatem laborum eaque mollitia, quae, rem modi sequi natus nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod maxime at deleniti, repudiandae, eveniet delectus perferendis, vitae laudantium fugit pariatur aut error perspiciatis nam recusandae. Doloribus quasi dolore totam, est.</p>
+            </div>
+            <div id="lowerSection">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio similique nisi quas quisquam neque libero sapiente. Facere, vitae laudantium dolore perferendis inventore, molestias minus, dolor dolores ipsam provident rem veniam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores neque, accusantium quam odio natus consequuntur officia, nemo iste adipisci placeat deserunt fugit aperiam saepe itaque eaque, quia, harum ullam at.</p>
+            </div>
+        </div>
+        <div>
+            <div class="buttons">
+                <button id="upCnt" onclick="upCountDown()"> Up </button> <span id="upperCnt"> 99</span>
+                <button id="dnCnt" onclick="dwnCountDown()">Down</button> <span id="lowerCnt">99 </span>
+            </div>
+
+            <!--
+            <div class="countdown1">
+                <input id="upperCnt1" type="text" />
+                <input id="lowerCnt1" type="text" />
+            </div>
+-->
+            <!--
+            <div class="countdown">
+                <span id="upperCnt"> </span>
+                <span id="lowerCnt"> </span>
+            </div>
+-->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var upCntr = 0;
+        var dwnCntr = 0;
+
+
+        function upCountDown() {
+
+            upCntr++;
+            //alert(upCntr);
+            //document.getElementById("upperCnt").value = upCntr;
+            //document.getElementById("upperCnt").style.display = "block";
+            //document.getElementById('upperCnt').innerHTML = upCntr;
+
+            document.querySelector("#upperCnt").style.display = "contents";
+            document.querySelector("#upperCnt").innerHTML = upCntr;
+            if (upCntr >= 1) {
+                document.querySelector("#upCnt").disabled = true;
+            }
+        }
+
+        function dwnCountDown() {
+            dwnCntr++;
+            // document.getElementById("lowerCnt").value = dwnCntr;
+            //alert(dwnCntr);
+
+            document.querySelector("#lowerCnt").style.display = "contents";
+            document.querySelector("#lowerCnt").innerHTML = dwnCntr;
+
+            if (dwnCntr >= 1) {
+                document.querySelector("#dnCnt").disabled = true;
+                document.querySelector("#dnCnt").style.color = grey;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

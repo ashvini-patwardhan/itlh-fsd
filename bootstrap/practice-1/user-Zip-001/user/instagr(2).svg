@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.311" height="23.311" viewBox="0 0 23.311 23.311">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1" y1="0.838" x2="0" y2="0.131" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fbe700"/>
+      <stop offset="1" stop-color="#d11b70"/>
+    </linearGradient>
+  </defs>
+  <g id="instagr_2_" data-name="instagr(2)" transform="translate(0)">
+    <path id="Path_586" data-name="Path 586" d="M23.311,11.655A11.655,11.655,0,1,1,11.655,0,11.655,11.655,0,0,1,23.311,11.655Zm0,0" fill="url(#linear-gradient)"/>
+    <g id="Group_499" data-name="Group 499" transform="translate(3.597 3.597)">
+      <path id="Path_587" data-name="Path 587" d="M90.412,95.118H83.707A4.711,4.711,0,0,1,79,90.412V83.707A4.711,4.711,0,0,1,83.707,79h6.705a4.711,4.711,0,0,1,4.706,4.706v6.705A4.711,4.711,0,0,1,90.412,95.118ZM83.707,80.367a3.344,3.344,0,0,0-3.34,3.34v6.705a3.344,3.344,0,0,0,3.34,3.34h6.705a3.344,3.344,0,0,0,3.34-3.34V83.707a3.344,3.344,0,0,0-3.34-3.34Zm0,0" transform="translate(-79.001 -79.001)" fill="#fff"/>
+      <path id="Path_588" data-name="Path 588" d="M164.371,168.742a4.371,4.371,0,1,1,4.371-4.371A4.376,4.376,0,0,1,164.371,168.742Zm0-7.376a3,3,0,1,0,3,3A3.008,3.008,0,0,0,164.371,161.366Zm0,0" transform="translate(-156.312 -156.312)" fill="#fff"/>
+      <path id="Path_589" data-name="Path 589" d="M339.621,146.793a.625.625,0,1,1-.625-.625A.625.625,0,0,1,339.621,146.793Zm0,0" transform="translate(-326.562 -143.109)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

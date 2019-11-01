@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style_srf.css">
+</head>
+
+<body>
+
+
+
+    <div id="container">
+        <h1> Student Registration Form </h1>
+
+        <form id="stregform">
+
+            <div class="userinput">
+                <label> Name  </label>
+                <input id="name" type="text" name="Name" value="" />
+            </div>
+
+            <div class="userinput">
+                <label> Email </label>
+                <input id="email" type="text" name="email" value="" />
+            </div>
+
+            <div class="userinput">
+                <label> Mobile </label>
+                <input id="mob" type="number" name="mob" value="" />
+            </div>
+
+            <div class="userinput">
+                <label> Gender </label>
+                <input id="gender1" type="radio" name="gender" value="male" /> Male
+                <input id="gender2" type="radio" name="gender" value="female" /> Female
+            </div>
+
+            <div class="userinput">
+                <label> Hobbies </label>
+                <input id="hobbies1" type="checkbox" name="hobbies" value="Music" /> Music
+                <input id="hobbies2" type="checkbox" name="hobbies" value="Reading" checked/> Reading
+                <input id="hobbies3" type="checkbox" name="hobbies" value="Sports" /> Sports
+
+            </div>
+
+            <div class="userinput">
+                <label>Address </label>
+                <textarea id="address" name="address" palceholder="Address" rows="5" cols="40"></textarea>
+            </div>
+
+            <!--
+            <div class="userinput">
+                <label>City </label>
+                <select name="city">
+                <option value="1">Lahore</option>
+                <option value="2">Karachi</option>
+                <option value="3">Islamabad </option>
+               </select>
+            </div>
+-->
+
+            <div style="text-align:center">
+                <input type="button" onclick="userInput()" value=Submit class="sampleBtn" />
+                <input type="button" onclick="resetMyForm()" value="Clear" class="sampleBtn" />
+
+            </div>
+
+        </form>
+
+    </div>
+    <script>
+        function userInput() {
+            var name = document.querySelector("#name").value;
+            console.log("The Entered Name is : " + name);
+
+            var email = document.querySelector("#email").value;
+            console.log("The Entered Email is : " + email);
+
+            var mobile = document.querySelector("#mob").value;
+            console.log("The Entered Mobile is : " + mobile);
+
+            var address = document.querySelector("#address").value;
+            console.log("The Entered Address is : " + address);
+
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            console.log("The Selected Gender is : " + gender);
+
+            var hobbies = document.querySelector('#hobbies:checked').value;
+            console.log("The Selected Hobby is : " + hobbies);
+        }
+
+        function resetMyForm() {
+            document.querySelector("#stregform").reset();
+        }
+    </script>
+</body>
+</html>

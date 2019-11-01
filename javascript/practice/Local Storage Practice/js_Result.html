@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>Local Storage Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+
+    <div class="result">
+        <h1> Quiz Result</h1>
+
+        <form id="output">
+
+            <div class="resultinput">
+
+                <label id="won"> You Won </label><br>
+
+                <label id="loose"> Sorry! You Loose </label><br>
+
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        var ls = window.localStorage;
+        ls = localStorage.getItem("answer");
+        console.log("The Selected Answer is : " + ls);
+        //document.querySelector("#lowerCnt").style.display = "contents";
+
+        if (ls == 'ans2') {
+            document.querySelector("#loose").style.display = "none";
+            document.querySelector("#won").style.display = "contents";
+        } else {
+            document.querySelector("#won").style.display = "none";
+            document.querySelector("#loose").style.display = "contents";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+    <div id="container">
+        <h1> Calculator </h1>
+
+        <form class="calculator">
+
+            <div class="userinput">
+                <input id="inputnum" type="text" name="result" value="" />
+            </div>
+
+            <div style="text-align:center">
+
+                <input type="button" onclick="calculate('9')" value="9" class="calcBtn" name="b9" />
+                <input type="button" onclick="calculate('8')" value="8" class="calcBtn" name="b8" />
+                <input type="button" onclick="calculate('7')" value="7" class="calcBtn" name="b7" />
+                <input type="button" onclick="calculate('*')" value="*" class="calcBtn" name="bmult" />
+                <br>
+                <input type="button" onclick="calculate('6')" value="6" class="calcBtn" name="b6" />
+                <input type="button" onclick="calculate('5')" value="5" class="calcBtn" name="b5" />
+                <input type="button" onclick="calculate('4')" value="4" class="calcBtn" name="b4" />
+                <input type="button" onclick="calculate('/')" value="/" class="calcBtn" name="bdiv" />
+                <br>
+                <input type="button" onclick="calculate('3')" value="3" class="calcBtn" name="b3" />
+                <input type="button" onclick="calculate('2')" value="2" class="calcBtn" name="b2" />
+                <input type="button" onclick="calculate('1')" value="1" class="calcBtn" name="b1" />
+                <input type="button" onclick="calculate('-')" value="-" class="calcBtn" name="bsub" />
+                <br>
+                <input type="button" onclick="resetdata()" value="C" class="calcBtn" name="breset" />
+                <input type="button" onclick="calculate('0')" value="0" class="calcBtn" name="b0" />
+                <input type="button" onclick="equalto()" value="=" class="calcBtn" name="bcal" />
+                <input type="button" onclick="calculate('+')" value="+" class="calcBtn" name="badd" />
+
+            </div>
+
+        </form>
+
+    </div>
+    <script>
+        function calculate(str) {
+
+            console.log("The Selected Number is : " + str);
+            document.querySelector('#inputnum').value += str;
+
+
+            //            var str2 = 0;
+            //            var str3 = 0;
+            //            var array1 = [str1, str2, str3];
+            //            console.log("array val is : " + array1[0]);
+            //            
+            //            if (str == '*' || str == '+' || str =='-' || str=='/'){
+            //                var evalstr = str;
+            //            }
+            //            else{
+            //                document.querySelector('#inputnum').value += str;
+            //            }
+
+        }
+
+        function equalto() {
+            var str1 = document.querySelector('#inputnum').value;
+            console.log(document.querySelector('#inputnum').value);
+
+            var result1 = eval(str1);
+            console.log("result is : " + result1);
+            document.querySelector('#inputnum').value = result1;
+
+        }
+
+        function resetdata() {
+            document.querySelector(".calculator").reset();
+        }
+
+    </script>
+</body>
+
+</html>

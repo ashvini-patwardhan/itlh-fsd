@@ -1,0 +1,20 @@
+.main {
+
+    width: 100%;
+}
+
+.main #left_part {
+    width: 50%;
+    height: 300px;
+    float: left;
+    overflow-y: scroll;
+}
+
+
+.main #right_part {
+    width: 50%;
+    float: right;
+    height: 300px;
+    overflow-y: scroll;
+
+}

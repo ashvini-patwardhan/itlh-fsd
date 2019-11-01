@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DOM Test</title>
+		<style type="text/css">
+			.hidden {
+				display: none !important;
+			}
+			.show {
+				display: block;
+			}
+		</style>
+		<link rel="stylesheet" href="bootstrap.css">
+		<script src="fontawesome.js"></script>
+	</head>
+	<body>
+		<button type="button" class="btn btn-outline-primary">Primary</button>
+
+		<div class="show" id="content">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.	
+		</div>
+		<button onclick="toggleDisplay()"> Toggle </button>
+		<i class="fas fa-bars" style="color:red"></i>
+	</body>
+	<script type="text/javascript">
+		function toggleDisplay() 
+		{
+			//alert("hi i am clicked");
+			var divElement = document.querySelector("#content");
+
+			if(document.querySelector("#content").classList[0] == "show")
+			{
+				divElement.classList.remove("show");	
+				divElement.classList.add("hidden");	
+			}
+			else
+			{
+				divElement.classList.remove("hidden");	
+				divElement.classList.add("show");		
+			}
+			
+		}
+	</script>
+</html>

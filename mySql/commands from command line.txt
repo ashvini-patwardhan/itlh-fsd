@@ -1,0 +1,288 @@
+Microsoft Windows [Version 10.0.17134.1006]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\Ashvini>cd C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -uroot -p
+Enter password:
+ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost' (10061 "Unknown error")
+
+C:\xampp\mysql\bin>mysql -uroot -proot
+ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost' (10061 "Unknown error")
+
+C:\xampp\mysql\bin>mysql -uroot -proot
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\xampp\mysql\bin>mysql -uroot -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 3
+Server version: 10.1.38-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hugo_francois      |
+| hugofrancois       |
+| information_schema |
+| mysql              |
+| oops_login         |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| tutorial           |
++--------------------+
+9 rows in set (0.27 sec)
+
+MariaDB [(none)]> create database itlh_db;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hugo_francois      |
+| hugofrancois       |
+| information_schema |
+| itlh_db            |
+| mysql              |
+| oops_login         |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| tutorial           |
++--------------------+
+10 rows in set (0.00 sec)
+
+MariaDB [(none)]> use itlh_db;
+Database changed
+MariaDB [itlh_db]> show tables;
+Empty set (0.00 sec)
+
+MariaDB [itlh_db]> create table participants ( name varchar(100), email varchar(100), ocuupation varchar(100),  mobile bigint(11), gender varchar(20), address longtext );
+Query OK, 0 rows affected (0.27 sec)
+
+MariaDB [itlh_db]> show tables
+    ->
+    -> ByeCtrl-C -- exit!
+
+
+C:\xampp\mysql\bin>mysql -uroot -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 4
+Server version: 10.1.38-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> describe participants;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> use itlh_db;
+Database changed
+MariaDB [itlh_db]> describe participants;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| name       | varchar(100) | YES  |     | NULL    |       |
+| email      | varchar(100) | YES  |     | NULL    |       |
+| ocuupation | varchar(100) | YES  |     | NULL    |       |
+| mobile     | bigint(11)   | YES  |     | NULL    |       |
+| gender     | varchar(20)  | YES  |     | NULL    |       |
+| address    | longtext     | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+MariaDB [itlh_db]> insert into participants('Ashvini', 'xyz@gmail.com', 'private', 9945637482, 'femaile', 'Belapur, Navi mumbai');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Ashvini', 'xyz@gmail.com', 'private', 9945637482, 'femaile', 'Belapur, Navi mum' at line 1
+MariaDB [itlh_db]> insert into participants('Ashvini', 'xyz@gmail.com', 'private', 9945637482, 'female', 'Belapur Navi mumbai');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Ashvini', 'xyz@gmail.com', 'private', 9945637482, 'female', 'Belapur Navi mumba' at line 1
+MariaDB [itlh_db]> insert into participants ('Ashvini', 'xyz@gmail.com', 'private', 9945637482, 'female', 'Belapur Navi mumbai');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''Ashvini', 'xyz@gmail.com', 'private', 9945637482, 'female', 'Belapur Navi mumba' at line 1
+MariaDB [itlh_db]> insert into participants values('Ashvini', 'xyz@gmail.com', 'private', 9945637482, 'female', 'Belapur Navi mumbai');
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [itlh_db]> select * from participants;
++---------+---------------+------------+------------+--------+---------------------+
+| name    | email         | ocuupation | mobile     | gender | address             |
++---------+---------------+------------+------------+--------+---------------------+
+| Ashvini | xyz@gmail.com | private    | 9945637482 | female | Belapur Navi mumbai |
++---------+---------------+------------+------------+--------+---------------------+
+1 row in set (0.00 sec)
+
+MariaDB [itlh_db]> update participants set mobile = 9833124578 where email = 'xyz@gmail.com';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [itlh_db]> select * from participants;
++---------+---------------+------------+------------+--------+---------------------+
+| name    | email         | ocuupation | mobile     | gender | address             |
++---------+---------------+------------+------------+--------+---------------------+
+| Ashvini | xyz@gmail.com | private    | 9833124578 | female | Belapur Navi mumbai |
++---------+---------------+------------+------------+--------+---------------------+
+1 row in set (0.00 sec)
+
+MariaDB [itlh_db]> delete from participants;
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [itlh_db]> insert into participants values('Ashvini', 'xyz@gmail.com', 'private', 9930445769, 'female', 'Belapur, Navi mumbai');
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [itlh_db]> select * from participants;
++---------+---------------+------------+------------+--------+----------------------+
+| name    | email         | ocuupation | mobile     | gender | address              |
++---------+---------------+------------+------------+--------+----------------------+
+| Ashvini | xyz@gmail.com | private    | 9930445769 | female | Belapur, Navi mumbai |
++---------+---------------+------------+------------+--------+----------------------+
+1 row in set (0.00 sec)
+
+MariaDB [itlh_db]> truncate table participants;
+Query OK, 0 rows affected (0.29 sec)
+
+MariaDB [itlh_db]> select * from participants;
+Empty set (0.00 sec)
+
+MariaDB [itlh_db]> drop table participants;
+Query OK, 0 rows affected (0.27 sec)
+
+MariaDB [itlh_db]> create table participants (name varchar(100), email varchar(100), occupation varchar(100), mobile bigint(11), gender varchar(20), address longtext);
+Query OK, 0 rows affected (0.57 sec)
+
+MariaDB [itlh_db]> describe participants;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| name       | varchar(100) | YES  |     | NULL    |       |
+| email      | varchar(100) | YES  |     | NULL    |       |
+| occupation | varchar(100) | YES  |     | NULL    |       |
+| mobile     | bigint(11)   | YES  |     | NULL    |       |
+| gender     | varchar(20)  | YES  |     | NULL    |       |
+| address    | longtext     | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+MariaDB [itlh_db]> insert into particiapnts values('Ashvini', 'xyz@gmail.com', 'education', 9867475626, 'female', 'Kopri, Thane');
+ERROR 1146 (42S02): Table 'itlh_db.particiapnts' doesn't exist
+MariaDB [itlh_db]> insert into participants values('Ashvini', 'xyz@gmail.com', 'education', 9867475626, 'female', 'Kopri, Thane');
+Query OK, 1 row affected (0.10 sec)
+
+MariaDB [itlh_db]> insert into participants values('Pranav', 'pranav@gmail.com', 'private', 9930785944, 'male', 'Seawoods, Navi Mumbai');
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [itlh_db]> insert into participants values('Sujata', 'abc@gmail.com', 'education', 9930123456, 'female', 'dadar mumbai');
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [itlh_db]> insert into participants values('Nilesh', 'nil@gmail.com', 'private', 9930567894, 'male', 'Panvel');
+Query OK, 1 row affected (0.10 sec)
+
+MariaDB [itlh_db]> select * from participants;
++---------+------------------+------------+------------+--------+-----------------------+
+| name    | email            | occupation | mobile     | gender | address               |
++---------+------------------+------------+------------+--------+-----------------------+
+| Ashvini | xyz@gmail.com    | education  | 9867475626 | female | Kopri, Thane          |
+| Pranav  | pranav@gmail.com | private    | 9930785944 | male   | Seawoods, Navi Mumbai |
+| Sujata  | abc@gmail.com    | education  | 9930123456 | female | dadar mumbai          |
+| Nilesh  | nil@gmail.com    | private    | 9930567894 | male   | Panvel                |
++---------+------------------+------------+------------+--------+-----------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [itlh_db]> select * from participants where gender='male';
++--------+------------------+------------+------------+--------+-----------------------+
+| name   | email            | occupation | mobile     | gender | address               |
++--------+------------------+------------+------------+--------+-----------------------+
+| Pranav | pranav@gmail.com | private    | 9930785944 | male   | Seawoods, Navi Mumbai |
+| Nilesh | nil@gmail.com    | private    | 9930567894 | male   | Panvel                |
++--------+------------------+------------+------------+--------+-----------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [itlh_db]> update particiapnts set email='sjp@gmail.com' where email='abc@gmail.com';
+ERROR 1146 (42S02): Table 'itlh_db.particiapnts' doesn't exist
+MariaDB [itlh_db]> update participants set email='sjp@gmail.com' where email='abc@gmail.com';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [itlh_db]> select * from participants;
++---------+------------------+------------+------------+--------+-----------------------+
+| name    | email            | occupation | mobile     | gender | address               |
++---------+------------------+------------+------------+--------+-----------------------+
+| Ashvini | xyz@gmail.com    | education  | 9867475626 | female | Kopri, Thane          |
+| Pranav  | pranav@gmail.com | private    | 9930785944 | male   | Seawoods, Navi Mumbai |
+| Sujata  | sjp@gmail.com    | education  | 9930123456 | female | dadar mumbai          |
+| Nilesh  | nil@gmail.com    | private    | 9930567894 | male   | Panvel                |
++---------+------------------+------------+------------+--------+-----------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [itlh_db]> select * from participants where occupation ='education';
++---------+---------------+------------+------------+--------+--------------+
+| name    | email         | occupation | mobile     | gender | address      |
++---------+---------------+------------+------------+--------+--------------+
+| Ashvini | xyz@gmail.com | education  | 9867475626 | female | Kopri, Thane |
+| Sujata  | sjp@gmail.com | education  | 9930123456 | female | dadar mumbai |
++---------+---------------+------------+------------+--------+--------------+
+2 rows in set (0.00 sec)
+
+MariaDB [itlh_db]> insert into participants values('Nitya', 'nt@gmail.com', 'government', 7845112344, 'female', 'Nerul, Navi Mumbai');
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [itlh_db]> select * from participants;
++---------+------------------+------------+------------+--------+-----------------------+
+| name    | email            | occupation | mobile     | gender | address               |
++---------+------------------+------------+------------+--------+-----------------------+
+| Ashvini | xyz@gmail.com    | education  | 9867475626 | female | Kopri, Thane          |
+| Pranav  | pranav@gmail.com | private    | 9930785944 | male   | Seawoods, Navi Mumbai |
+| Sujata  | sjp@gmail.com    | education  | 9930123456 | female | dadar mumbai          |
+| Nilesh  | nil@gmail.com    | private    | 9930567894 | male   | Panvel                |
+| Nitya   | nt@gmail.com     | government | 7845112344 | female | Nerul, Navi Mumbai    |
++---------+------------------+------------+------------+--------+-----------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [itlh_db]> delete from participants where email='nil@gmail.com';
+Query OK, 1 row affected (0.17 sec)
+
+MariaDB [itlh_db]> select * from participants;
++---------+------------------+------------+------------+--------+-----------------------+
+| name    | email            | occupation | mobile     | gender | address               |
++---------+------------------+------------+------------+--------+-----------------------+
+| Ashvini | xyz@gmail.com    | education  | 9867475626 | female | Kopri, Thane          |
+| Pranav  | pranav@gmail.com | private    | 9930785944 | male   | Seawoods, Navi Mumbai |
+| Sujata  | sjp@gmail.com    | education  | 9930123456 | female | dadar mumbai          |
+| Nitya   | nt@gmail.com     | government | 7845112344 | female | Nerul, Navi Mumbai    |
++---------+------------------+------------+------------+--------+-----------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [itlh_db]> insert into participants values('Nitin', 'nj@gmail.com', 'private', 7734562176, 'male', 'Khar Mumbai');
+Query OK, 1 row affected (0.11 sec)
+
+MariaDB [itlh_db]> select * from participants;
++---------+------------------+------------+------------+--------+-----------------------+
+| name    | email            | occupation | mobile     | gender | address               |
++---------+------------------+------------+------------+--------+-----------------------+
+| Ashvini | xyz@gmail.com    | education  | 9867475626 | female | Kopri, Thane          |
+| Pranav  | pranav@gmail.com | private    | 9930785944 | male   | Seawoods, Navi Mumbai |
+| Sujata  | sjp@gmail.com    | education  | 9930123456 | female | dadar mumbai          |
+| Nitya   | nt@gmail.com     | government | 7845112344 | female | Nerul, Navi Mumbai    |
+| Nitin   | nj@gmail.com     | private    | 7734562176 | male   | Khar Mumbai           |
++---------+------------------+------------+------------+--------+-----------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [itlh_db]> select * from prticipants where occupation = 'education';
+ERROR 1146 (42S02): Table 'itlh_db.prticipants' doesn't exist
+MariaDB [itlh_db]> select * from participants where occupation = 'education';
++---------+---------------+------------+------------+--------+--------------+
+| name    | email         | occupation | mobile     | gender | address      |
++---------+---------------+------------+------------+--------+--------------+
+| Ashvini | xyz@gmail.com | education  | 9867475626 | female | Kopri, Thane |
+| Sujata  | sjp@gmail.com | education  | 9930123456 | female | dadar mumbai |
++---------+---------------+------------+------------+--------+--------------+
+2 rows in set (0.00 sec)
+
+MariaDB [itlh_db]> Ctrl-C -- exit!
+Bye
+
+C:\xampp\mysql\bin>

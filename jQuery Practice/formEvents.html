@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta charset="utf-8">
+  <title>Media Query Example</title>
+
+  <link rel="stylesheet" href="bootstrap.css">
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+
+    <form method="post" action="registraion.php">
+      <div class="row my-2">
+        <div class="col-md-2"></div>
+
+      </div>
+
+      <div class="row my-2"></div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-7">
+          <select name="sweets" multiple="multiple">
+                    <option>Chocolate</option>
+                    <option>Candy</option>
+                    <option>Taffy</option>
+                    <option selected="selected">Caramel</option>
+                    <option>Fudge</option>  
+                    <option>Cookie</option>               
+                </select>
+        </div>
+      </div>
+
+      <div class="row my-2"></div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-7">
+
+          <p><input type="text"> <span>focusin fire</span></p>
+          <p><input type="password"><span>focusin fire</span></p>
+          <p> <button id="btn">Submit</button></p>
+        </div>
+      </div>
+
+      <div class="row my-2"></div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+
+          <fieldset>
+            <input id="target" type="text" value="Hello There!">
+
+          </fieldset>
+
+
+        </div>
+      </div>
+      <div class="row my-2"></div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+          <p><input id="dblclk" type="text" value="Double Click Here"></p>
+        </div>
+      </div>
+    </form>
+
+    <!--
+    <script>
+      $("select").change(function() {
+        alert("change fired");
+      });
+
+      $("p").focusin(function() {
+        $(this).find("span").css("display", "inline").fadeOut(1000);
+      });
+
+      $("p").focusout(function() {
+        console.log("focus out was fired!");
+      });
+
+      $("p").select(function() {
+        alert("select was fired!");
+      });
+
+    </script>
+-->
+
+    <script>
+      $("#target").keypress(function() {
+        console.log("Handler for keypress() called");
+
+      });
+
+      $("#target").hover(function() {
+        alert("hover event called");
+
+      });
+
+      $("select").click(function() {
+        console.log("Mouse Clicked!");
+      });
+
+      $("#btn").contextmenu(function() {
+        console.log("Right clicked");
+
+      });
+
+      $("#dblclk").dblclick(function() {
+        console.log("Double Clicked!");
+      });
+
+      $("#dblclk").mouseenter(function() {
+        console.log("mouse entered!");
+      });
+
+
+      $("#dblclk").dblclick(function() {
+        console.log("Double Clicked!");
+      });
+
+      $("#dblclk").mouseleave(function() {
+        alert("mouse left");
+
+      });
+
+    </script>
+
+
+  </div>
+</body>
+
+</html>

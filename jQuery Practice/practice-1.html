@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta charset="utf-8">
+  <title>Media Query Example</title>
+  <!--
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="fonts/bootstrap.css">
+  <script src="fonts/fontawesome.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+-->
+
+  <style type="text/css">
+    div {
+      color: blue;
+    }
+
+    p {
+      color: green;
+    }
+
+
+    /*
+
+    span {
+      color: red;
+      display: none;
+    }
+*/
+
+  </style>
+  <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+
+  <!--
+  <div> try scrolling the iFrame.</div>
+  <p> Paragraph - <span>Scroll happened!</span></p>
+-->
+
+
+
+
+  <div> try resizing the browser</div>
+  <p>Paragraph -</p>
+
+
+
+  <script type="text/javascript">
+    //    $("p").clone().appendTo(document.body);
+    //    $("p").clone().appendTo(document.body);
+    //    $("p").clone().appendTo(document.body);
+    //    $("p").clone().appendTo(document.body);
+    //    $("p").clone().appendTo(document.body);
+    //
+    //
+    //    $(window).scroll(function() {
+    //      $("span").css("display", "inline").fadeOut("slow");
+    //    });
+
+    $(window).resize(function() {
+      $("body").prepend("<div><p> width is " + $(document).width() + " and height is " + $(document).height() + "</p></div>");
+      console.log("Hi");
+    });
+
+    $(document).ready(function() {
+      console.log("DOM has loaded!");
+    });
+
+    //    $(document).unload(function() {
+    //      return "Bye Now!";
+    //    });
+
+  </script>
+</body>
+
+</html>

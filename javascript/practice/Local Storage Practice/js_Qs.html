@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <title>Local Storage Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="container">
+        <h1> HTML Quiz </h1>
+
+        <form id="contest">
+
+            <div class="userinput">
+                <label> What does HTML stand for? </label><br>
+                <input id="opt1" type="radio" name="quiz" value="ans1" /> Home Tool Markup Language <br>
+                <input id="opt2" type="radio" name="quiz" value="ans2" /> Hyper Text Markup Language <br>
+                <input id="opt3" type="radio" name="quiz" value="ans3" /> Hyperlinks and Text Markup Language <br>
+                <input id="opt4" type="radio" name="quiz" value="ans4" /> Hyper Tool Markup Language <br>
+            </div>
+
+            <div style="text-align:center">
+                <input type="button" onclick="userInput()" value=Submit class="sampleBtn" />
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        function userInput() {
+            var quiz = document.querySelector('input[name="quiz"]:checked').value;
+            console.log("The Selected Answer is : " + quiz);
+
+            var ls = window.localStorage;
+            localStorage.setItem("answer", quiz);
+
+            window.location = "js_Result.html";
+        }
+    </script>
+</body>
+
+</html>

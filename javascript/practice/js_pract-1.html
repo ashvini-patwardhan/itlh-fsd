@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>JS Practice</title>
+</head>
+
+<body>
+    <h3>JS</h3>
+    <!--    If...Else  Condition -->
+    <p>Clck the button to display 'Good day', only if the time is less than 20:00.</p>
+
+    <button onclick='myFunction1()'>Try it</button>
+    <p id='demo1'></p>
+    <script>
+        var name = 'Ashvini';
+        var courses = ['FSD', 'MSD', 'AI', 'DS'];
+        console.log(courses[3]);
+        // alert(name);
+        courses.push('DA');
+        console.log(courses);
+
+        function myFunction1() {
+            var time = new Date().getHours();
+            if (time < 20) {
+                document.getElementById("demo1").innerHTML = "Good day";
+            }
+        }
+    </script>
+
+    <!-- Switch Case  -->
+    <p>Write Banana, Orange or Apple in the input field and click the button.</p>
+    <p>The switch statement will execute a block of code based on your input.</p>
+
+    <input id="myInput" type="text">
+
+    <button onclick="myFunction2()">Try it</button>
+
+    <p id="demo2"></p>
+
+    <script>
+        function myFunction2() {
+            var text;
+            var fruits = document.getElementById("myInput").value;
+
+            switch (fruits) {
+                case "Banana":
+                    text = "Banana is good!";
+                    break;
+                case "Orange":
+                    text = "I am not a fan of orange.";
+                    break;
+                case "Apple":
+                    text = "How you like them apples?";
+                    break;
+                default:
+                    text = "I have never heard of that fruit...";
+            }
+            document.getElementById("demo2").innerHTML = text;
+        }
+    </script>
+
+    <!--    For Loop -->
+    <p>Click the button to loop through a block of code five times.</p>
+
+    <button onclick="myFunction3()">Try it</button>
+
+    <p id="demo3"></p>
+
+    <script>
+        function myFunction3() {
+            var text = "";
+            var i;
+            for (i = 0; i < 5; i++) {
+                text += "The number is " + i + "<br>";
+            }
+            document.getElementById("demo3").innerHTML = text;
+        }
+    </script>
+
+
+    <!-- Do...While -->
+    <p>Click the button to loop through a block of code as long as i is less than 5.</p>
+
+    <button onclick="myFunction4()">Try it</button>
+
+    <p id="demo4"></p>
+
+    <script>
+        function myFunction4() {
+            var text = ""
+            var i = 0;
+            do {
+                text += "<br>The number is " + i;
+                i++;
+            }
+            while (i < 5);
+            document.getElementById("demo4").innerHTML = text;
+        }
+    </script>
+
+
+</body>
+
+</html>
+
