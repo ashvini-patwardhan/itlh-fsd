@@ -359,7 +359,7 @@
         }
 
         function deletesuccessCallBack(Val) {
-            // console.log("Deleted Data for ID : " + Val);
+            console.log("Deleted Data for ID : " + Val);
             //            if (result == 'Edited') {
             //              window.location = "viewData.php";
             //            }
@@ -374,7 +374,7 @@
         //          ************************************** //
 
         function editData(participant_Id) {
-
+            console.log("ID: " + participant_Id);
             var data = {
                 id1: participant_Id
 
@@ -384,48 +384,36 @@
             $.ajax({
                 url: 'edit_aio.php',
                 data: data,
-                method: 'GET',
-                success: editsuccessCallBack,
-                error: editerrorCallBack
+                method: 'POST',
+                success: deletesuccessCallBack,
+                error: deleteerrorCallBack
             });
 
         }
 
-        //        $(document).ready(function() {
-        //            editData();
-        //        });
-
-        //        function editData() { // $(document).ready(function() { // // // }
-
         function editsuccessCallBack(editVal) {
-            //console.log("Edit ID: " + participant_Id);
 
-            var m, n;
+            var a, i;
             var editJSON = JSON.parse(editVal);
-            for (n = 0; n < editJSON.length; n++) {
-                $(document).ready(function() {
-                    //for (i in myJSON) {
-                    // m = editJSON[n].name;
-                    console.log("Name of All Participants : " + editJSON + "\n");
-                    // document.getElementById("id").innerHTML += editJSON[n].id + "<br><br>";
-                    document.getElementById("name").innerHTML += editJSON[n].name + "<br><br>";
-                    document.getElementById("email").innerHTML += editJSON[n].email + "<br><br>";
-                    document.getElementById("occupation").innerHTML += editJSON[n].occupation + "<br><br>";
-                    document.getElementById("mobile").innerHTML += editJSON[n].mobile + "<br><br>";
-                    document.getElementById("gender").innerHTML += editJSON[n].gender + "<br><br>";
-                    document.getElementById("address").innerHTML += editJSON[n].address + "<br><br>";
 
-                    // $('#edit').append("<a href='edit.php?id=myJSON[i].id'><h6> Edit </h6> </a><br>");
-                    // document.getElementById("edit").innerHTML += "<a href='edit.php?id=" + myJSON[i].id + "'><h6> Edit </h6> </a><br>";
+            //for (i in myJSON) {
+            x = myJSON[i].name;
+            // console.log("Name of All Participants : " + myJSON + "\n");
+            document.getElementById("id_Show").innerHTML += myJSON[i].id + "<br><br>";
+            document.getElementById("name_Show").innerHTML += myJSON[i].name + "<br><br>";
+            document.getElementById("email_Show").innerHTML += myJSON[i].email + "<br><br>";
+            document.getElementById("occupation_Show").innerHTML += myJSON[i].occupation + "<br><br>";
+            document.getElementById("mobile_Show").innerHTML += myJSON[i].mobile + "<br><br>";
+            document.getElementById("gender_Show").innerHTML += myJSON[i].gender + "<br><br>";
+            document.getElementById("address_Show").innerHTML += myJSON[i].address + "<br><br>";
 
-                    // document.getElementById("edit").innerHTML += "<button class='button' onclick='editData(" + myJSON[i].id + ")' type='button'>Edit</button>" + "<br><br>";
+            // $('#edit').append("<a href='edit.php?id=myJSON[i].id'><h6> Edit </h6> </a><br>");
+            // document.getElementById("edit").innerHTML += "<a href='edit.php?id=" + myJSON[i].id + "'><h6> Edit </h6> </a><br>";
 
-                    // document.getElementById("del").innerHTML += "<button class='button' onclick='deleteData(" + myJSON[i].id + ")' type='button'>Delete</button>" + "<br><br>";
+            document.getElementById("edit").innerHTML += "<button class='button' onclick='editData(" + myJSON[i].id + ")' type='button'>Edit</button>" + "<br><br>";
 
-                    $("#regForm").load("allinone.php");
-                });
+            document.getElementById("del").innerHTML += "<button class='button' onclick='deleteData(" + myJSON[i].id + ")' type='button'>Delete</button>" + "<br><br>";
 
-            }
         }
 
         function editerrorCallBack() {
