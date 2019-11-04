@@ -115,6 +115,10 @@
             <div class="col-md-2">
                 <button class="button" id="insertData" onclick="insertData()" type="button">Add</button>
             </div>
+            <div class="col-md-2">
+                <button id="addData">Add</button>
+                <button id="updateData">Update</button>
+            </div>
         </div>
 
         <div class="row my-2"></div>
@@ -122,6 +126,11 @@
 
     <script type="text/javascript">
         function insertData() {
+            $('#addData').on('click', function() {
+                //$('#ajax-content').load('https://codepen.io/eclairereese/pen/BzQBzR.html');
+                $('#addData').hide();
+                // $('#updateData').show();
+            })
             var data = {
                 name: document.querySelector('#name').value,
                 email: document.querySelector('#email').value,
@@ -167,6 +176,8 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            $('#updateData').hide();
+            // $('#addData').show();
             showData();
         });
 
@@ -222,7 +233,7 @@
                 // $('#edit').append("<a href='edit.php?id=myJSON[i].id'><h6> Edit </h6> </a><br>");
                 // document.getElementById("edit").innerHTML += "<a href='edit.php?id=" + myJSON[i].id + "'><h6> Edit </h6> </a><br>";
 
-                document.getElementById("edit").innerHTML += "<button class='button' onclick='editData(" + myJSON[i].id + ")' type='button'>Edit</button>" + "<br><br>";
+                document.getElementById("edit").innerHTML += "<button class='button' id='edtData' onclick='editData(" + myJSON[i].id + ")' type='button'>Edit</button>" + "<br><br>";
 
                 document.getElementById("del").innerHTML += "<button class='button' onclick='deleteData(" + myJSON[i].id + ")' type='button'>Delete</button>" + "<br><br>";
             }
@@ -339,12 +350,13 @@
             <div class="row my-1"></div>
     </div>
 
+
+
     <script type="text/javascript">
         function deleteData(participant_Id) {
             console.log("ID: " + participant_Id);
             var data = {
                 id1: participant_Id
-
             }
 
 
@@ -359,11 +371,6 @@
         }
 
         function deletesuccessCallBack(Val) {
-            // console.log("Deleted Data for ID : " + Val);
-            //            if (result == 'Edited') {
-            //              window.location = "viewData.php";
-            //            }
-
             showData();
         }
 
@@ -374,12 +381,17 @@
         //          ************************************** //
 
         function editData(participant_Id) {
+            $('#edtData').on('click', function() {
+                //$('#ajax-content').load('https://codepen.io/eclairereese/pen/BzQBzR.html');
+                console.log("Clik Edit Button");
+                $('#addData').hide();
+                $('#updateData').show();
+            })
 
             var data = {
                 id1: participant_Id
 
             }
-
 
             $.ajax({
                 url: 'edit_aio.php',
@@ -391,40 +403,43 @@
 
         }
 
-        //        $(document).ready(function() {
-        //            editData();
-        //        });
 
-        //        function editData() { // $(document).ready(function() { // // // }
 
         function editsuccessCallBack(editVal) {
-            //console.log("Edit ID: " + participant_Id);
+            //  $('#updateData').hide();
 
-            var m, n;
-            var editJSON = JSON.parse(editVal);
-            for (n = 0; n < editJSON.length; n++) {
-                $(document).ready(function() {
-                    //for (i in myJSON) {
-                    // m = editJSON[n].name;
-                    console.log("Name of All Participants : " + editJSON + "\n");
-                    // document.getElementById("id").innerHTML += editJSON[n].id + "<br><br>";
-                    document.getElementById("name").innerHTML += editJSON[n].name + "<br><br>";
-                    document.getElementById("email").innerHTML += editJSON[n].email + "<br><br>";
-                    document.getElementById("occupation").innerHTML += editJSON[n].occupation + "<br><br>";
-                    document.getElementById("mobile").innerHTML += editJSON[n].mobile + "<br><br>";
-                    document.getElementById("gender").innerHTML += editJSON[n].gender + "<br><br>";
-                    document.getElementById("address").innerHTML += editJSON[n].address + "<br><br>";
+            //editData();
+            var m;
+            var n = 0;
+            // editJSON = '';
+            var editJson = JSON.parse(editVal);
+            for (n = 0; n < editJson.length; n++) {
+                //for (i in myJSON) {
+                m = editJson.name;
+                console.log("Name of All Participants : " + m + "\n");
 
-                    // $('#edit').append("<a href='edit.php?id=myJSON[i].id'><h6> Edit </h6> </a><br>");
-                    // document.getElementById("edit").innerHTML += "<a href='edit.php?id=" + myJSON[i].id + "'><h6> Edit </h6> </a><br>";
+                //document.getElementById("name").innerHTML = editJson[n].name;
+                $('#regForm #name').val(editJson[n].name);
+                $('#regForm #email').val(editJson[n].email); //txtID is textbox ID
 
-                    // document.getElementById("edit").innerHTML += "<button class='button' onclick='editData(" + myJSON[i].id + ")' type='button'>Edit</button>" + "<br><br>";
+                //$('#occupation option:eq(1)').attr('selected', 'selected');
+                $('#occupation').attr('selected', editJson[n].occupation);
+                $('#regForm #mobile').val(editJson[n].mobile); //txtID is textbox ID
+                if (editJson[n].gender == 'female') {
+                    $("#gender1").prop("checked", true);
+                    $("#gender2").prop("checked", false);
+                } else if (editJson[n].gender == 'male') {
+                    $("#gender2").prop("checked", true);
+                    $("#gender1").prop("checked", false);
+                }
+                $('#regForm #address').val(editJson[n].address);
+                //                document.getElementById("email").innerHTML = editJson[n].email;
+                //                document.getElementById("occupation").innerHTML = editJson.occupation;
+                //                document.getElementById("mobile").innerHTML = editJson.mobile;
+                //                //document.getElementById('input[name="gender"]:checked').innerHTML = editJson.gender;
+                //                document.getElementById("address").innerHTML = editJson.address;
 
-                    // document.getElementById("del").innerHTML += "<button class='button' onclick='deleteData(" + myJSON[i].id + ")' type='button'>Delete</button>" + "<br><br>";
-
-                    $("#regForm").load("allinone.php");
-                });
-
+                //                $('#updateData').on('click', function() { // $('#addData').show(); // $('#updateData').hide(); // })
             }
         }
 
@@ -433,8 +448,13 @@
         }
 
     </script>
+    <!--
+    <p id="demo"></p>
+    <div class="col-md-7">
+        <input type="text" name="editName" id="editName" value="" placeholder="Name">
 
-
+    </div>
+-->
 
 </body>
 

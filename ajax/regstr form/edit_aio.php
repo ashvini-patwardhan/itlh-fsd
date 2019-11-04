@@ -8,8 +8,8 @@
   $successQry1 = $statement1->execute();
   $result = $statement1->fetchAll();
   //var_dump ($result) ;
-  $php_gender = $result[0]['gender'];
-  $php_occupation = $result[0]['occupation']; 
+ // $php_gender = $result[0]['gender'];
+ // $php_occupation = $result[0]['occupation']; 
     
   echo json_encode($result);
 
