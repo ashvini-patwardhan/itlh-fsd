@@ -38,6 +38,9 @@
             <div class="col-md-7">
                 <input type="text" name="name" id="name" value="" placeholder="Name">
             </div>
+            <div class="col-md-7">
+                <input type="hidden" name="id" id="id" value="" placeholder="Name">
+            </div>
         </div>
 
         <div class="row my-2"></div>
@@ -106,6 +109,7 @@
             <div class="col-md-7">
                 <textarea name="address" id="address" cols="30" rows="8" placeholder="Address"></textarea>
             </div>
+
         </div>
 
         <div class="row my-1"></div>
@@ -113,12 +117,22 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-2">
-                <button class="button" id="insertData" onclick="insertData()" type="button">Add</button>
+                <button class="button" id="addBtn" onclick="insertData()" type="button">Add</button>
+                <button class="button" onclick="updateData()" id="updateBtn" type="button">Update</button>
             </div>
-            <div class="col-md-2">
-                <button id="addData">Add</button>
-                <button id="updateData">Update</button>
-            </div>
+            <script type="text/javascript">
+                $('#updateBtn').hide();
+                $('#addBtn').on('click', function() {
+                    // $('#ajax-content').load('https://codepen.io/eclairereese/pen/BzQBzR.html');
+                    $('#addBtn').hide();
+                    $('#updateBtn').show();
+                })
+                $('#updateBtn').on('click', function() {
+                    $('#addBtn').show();
+                    $('#updateBtn').hide();
+                })
+
+            </script>
         </div>
 
         <div class="row my-2"></div>
@@ -126,11 +140,7 @@
 
     <script type="text/javascript">
         function insertData() {
-            $('#addData').on('click', function() {
-                //$('#ajax-content').load('https://codepen.io/eclairereese/pen/BzQBzR.html');
-                $('#addData').hide();
-                // $('#updateData').show();
-            })
+
             var data = {
                 name: document.querySelector('#name').value,
                 email: document.querySelector('#email').value,
@@ -158,15 +168,56 @@
                 //window.location = "viewData.php";
                 showData();
             }
+
         }
 
         function errorCallBack() {
             console.log("nope");
         }
 
+
+
+        <!--  *************************************   Update Data  **************** -->
+
+        function updateData() {
+
+            var data = {
+                id: document.querySelector('#id').value,
+                name: document.querySelector('#name').value,
+                email: document.querySelector('#email').value,
+                occupation: document.querySelector('#occupation').value,
+                mobile: document.querySelector('#mobile').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                address: document.querySelector('#address').value
+            }
+
+            $.ajax({
+                url: 'update.php',
+                data: data,
+                method: 'POST',
+                success: updatesuccessCallBack,
+                error: updateerrorCallBack
+            });
+
+        }
+
+
+
+        function updatesuccessCallBack(result1) {
+            //console.log("done: " + result);
+            if (result1 == 'updated') {
+                //window.location = "viewData.php";
+                showData();
+
+            }
+            $('#name_Show').focus();
+        }
+
+        function updateerrorCallBack() {
+            console.log("nope");
+        }
+
     </script>
-
-
 
 
 
@@ -176,8 +227,6 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#updateData').hide();
-            // $('#addData').show();
             showData();
         });
 
@@ -192,10 +241,7 @@
                 $('#regForm #mobile').val(''); //txtID is textbox ID
                 $("#gender1").prop("checked", false);
                 $("#gender2").prop("checked", false);
-                $('#regForm #address').val(''); //txtID is textbox ID
-
-
-
+                $('#regForm #address').val(''); //txtID is textbox ID  
             });
             // $(document).ready(function() {
             // console.log("ID: ");
@@ -233,10 +279,13 @@
                 // $('#edit').append("<a href='edit.php?id=myJSON[i].id'><h6> Edit </h6> </a><br>");
                 // document.getElementById("edit").innerHTML += "<a href='edit.php?id=" + myJSON[i].id + "'><h6> Edit </h6> </a><br>";
 
-                document.getElementById("edit").innerHTML += "<button class='button' id='edtData' onclick='editData(" + myJSON[i].id + ")' type='button'>Edit</button>" + "<br><br>";
+                document.getElementById("edit").innerHTML += "<button class='button' id='editBtn' onclick='editData(" + myJSON[i].id + ")' type='button'>Edit</button>" + "<br><br>";
 
                 document.getElementById("del").innerHTML += "<button class='button' onclick='deleteData(" + myJSON[i].id + ")' type='button'>Delete</button>" + "<br><br>";
+
             }
+
+            //            $('#editBtn').on('click', function() { // console.log("Edit Button Clicked"); // $('#addBtn').hide(); // $('#updateBtn').show(); // $('#name').focus(); // })
         }
 
         function showerrorCallBack() {
@@ -289,65 +338,65 @@
 
         <div class="row my-2"></div>
 
-        <?php
-//     for($i=0; $i < sizeof($result); $i++)
-//     {      
-  ?>
-            <div class="row">
-                <div class="col-md-1 my-3">
-                    <label for="id" id="id_Show">
+
+        <div class="row">
+            <div class="col-md-1 my-3">
+                <label for="id" id="id_Show">
                
           </label>
-                </div>
-                <div class="col-md-2 my-3">
-                    <label class="text-md-left" for="name" id="name_Show">
+            </div>
+            <div class="col-md-2 my-3">
+                <label class="text-md-left" for="name" id="name_Show">
     
               </label>
-                </div>
-                <div class="col-md-2 my-3">
-                    <label class="text-md-left" for="Email" id="email_Show">
+            </div>
+            <div class="col-md-2 my-3">
+                <label class="text-md-left" for="Email" id="email_Show">
               </label>
-                </div>
-                <div class="col-md-1 my-3">
-                    <label class="text-md-left" for="Occupation" id="occupation_Show">
+            </div>
+            <div class="col-md-1 my-3">
+                <label class="text-md-left" for="Occupation" id="occupation_Show">
               </label>
-                </div>
-                <div class="col-md-1 my-3">
-                    <label class="text-md-left" for="Mobile" id="mobile_Show">
+            </div>
+            <div class="col-md-1 my-3">
+                <label class="text-md-left" for="Mobile" id="mobile_Show">
               </label>
-                </div>
-                <div class="col-md-1 my-3">
-                    <label class="text-md-left" for="Gender" id="gender_Show">
+            </div>
+            <div class="col-md-1 my-3">
+                <label class="text-md-left" for="Gender" id="gender_Show">
               </label>
-                </div>
-                <div class="col-md-2 my-3">
-                    <label class="text-md-left" for="Address" id="address_Show">
+            </div>
+            <div class="col-md-2 my-3">
+                <label class="text-md-left" for="Address" id="address_Show">
                
               </label>
-                </div>
+            </div>
 
-                <div class="col-md-1 my-2" id="edit">
+            <div class="col-md-1 my-2" id="edit">
 
-                    <!--  <a href="edit.php?id=<?php //echo ($result[$i]['id']);?>">
+                <!--  <a href="edit.php?id=<?php //echo ($result[$i]['id']);?>">
             <h6>Edit</h6>
           </a>  -->
 
-                    <?php //$participant_Id = ($result[$i]['id']);?>
+                <?php //$participant_Id = ($result[$i]['id']);?>
 
-                </div>
+            </div>
 
-                <div class="col-md-1" id="del">
-                    <!--
+            <div class="col-md-1" id="del">
+                <!--
             <a href="delete.php?id=<?php //echo ($result[$i]['id']);?>">
               <h6>Delete</h6>
             </a>
 -->
-                    <!--          <button class="button" onclick="deleteData(<?php //echo $participant_Id;?>)" type="button">Delete</button>-->
-
-                </div>
+                <!--          <button class="button" onclick="deleteData(<?php //echo $participant_Id;?>)" type="button">Delete</button>-->
 
             </div>
-            <div class="row my-1"></div>
+
+
+        </div>
+        <div class="row my-1"></div>
+
+
     </div>
 
 
@@ -381,12 +430,9 @@
         //          ************************************** //
 
         function editData(participant_Id) {
-            $('#edtData').on('click', function() {
-                //$('#ajax-content').load('https://codepen.io/eclairereese/pen/BzQBzR.html');
-                console.log("Clik Edit Button");
-                $('#addData').hide();
-                $('#updateData').show();
-            })
+            $('#addBtn').hide();
+            $('#updateBtn').show();
+            $('#name').focus();
 
             var data = {
                 id1: participant_Id
@@ -406,7 +452,6 @@
 
 
         function editsuccessCallBack(editVal) {
-            //  $('#updateData').hide();
 
             //editData();
             var m;
@@ -419,6 +464,7 @@
                 console.log("Name of All Participants : " + m + "\n");
 
                 //document.getElementById("name").innerHTML = editJson[n].name;
+                $('#regForm #id').val(editJson[n].id);
                 $('#regForm #name').val(editJson[n].name);
                 $('#regForm #email').val(editJson[n].email); //txtID is textbox ID
 
@@ -440,7 +486,11 @@
                 //                document.getElementById("address").innerHTML = editJson.address;
 
                 //                $('#updateData').on('click', function() { // $('#addData').show(); // $('#updateData').hide(); // })
+
+                //  $('#updateData').hide();
             }
+
+
         }
 
         function editerrorCallBack() {
