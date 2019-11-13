@@ -210,7 +210,7 @@
                 showData();
 
             }
-            $('#name_Show').focus();
+            $('#show_participants #name_Show').focus();
         }
 
         function updateerrorCallBack() {
@@ -222,7 +222,6 @@
 
 
     <!-- ******************** Show Data ******************** -->
-
 
 
     <script type="text/javascript">
@@ -339,7 +338,7 @@
         <div class="row my-2"></div>
 
 
-        <div class="row">
+        <div class="row" id="show_participants">
             <div class="col-md-1 my-3">
                 <label for="id" id="id_Show">
                
