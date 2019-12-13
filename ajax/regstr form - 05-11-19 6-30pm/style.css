@@ -1,0 +1,28 @@
+body {
+    /*    font-family: AvenirRoman, "Open Sans";*/
+    background-color: #ebebeb;
+    width: 100%;
+
+}
+
+
+/* Header */
+
+.button {
+    background-color: #5e9548;
+    /* Green */
+    border: 1px;
+    border-radius: 3px;
+    border-color: #5b7950;
+    color: white;
+    padding: 2px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+h6 {
+
+    font-size: 14px;
+}
